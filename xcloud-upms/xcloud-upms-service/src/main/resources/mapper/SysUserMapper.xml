@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjinyao.xcloud.admin.mapper.SysUserMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="baseResultMap" type="com.xjinyao.xcloud.admin.api.vo.UserVO">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="salt" property="salt"/>
+        <result column="phone" property="phone"/>
+        <result column="avatar" property="avatar"/>
+        <result column="ucreate_time" property="createTime"/>
+        <result column="uupdate_time" property="updateTime"/>
+        <result column="lock_flag" property="lockFlag"/>
+        <result column="udel_flag" property="delFlag"/>
+        <result column="sex" property="sex"/>
+        <result column="realname" property="realname"/>
+        <result column="email" property="email"/>
+        <result column="remark" property="remark"/>
+        <result column="organizationId" property="organizationId"/>
+        <result column="organizationName" property="organizationName"/>
+        <collection property="roleList" ofType="com.xjinyao.xcloud.admin.api.entity.SysRole"
+                    select="com.xjinyao.xcloud.admin.mapper.SysRoleMapper.listRolesByUserId" column="user_id">
+        </collection>
+    </resultMap>
+
+    <!-- userVo结果集 -->
+    <resultMap id="userVoResultMap" type="com.xjinyao.xcloud.admin.api.vo.UserVO">
+        <id column="user_id" property="userId"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="salt" property="salt"/>
+        <result column="phone" property="phone"/>
+        <result column="avatar" property="avatar"/>
+        <result column="ucreate_time" property="createTime"/>
+        <result column="uupdate_time" property="updateTime"/>
+        <result column="lock_flag" property="lockFlag"/>
+        <result column="udel_flag" property="delFlag"/>
+        <result column="sex" property="sex"/>
+        <result column="realname" property="realname"/>
+        <result column="email" property="email"/>
+        <result column="remark" property="remark"/>
+        <result column="organizationId" property="organizationId"/>
+        <result column="organizationName" property="organizationName"/>
+        <collection property="roleList" ofType="com.xjinyao.xcloud.admin.api.entity.SysRole">
+            <id column="role_id" property="roleId"/>
+            <result column="role_name" property="roleName"/>
+            <result column="role_code" property="roleCode"/>
+            <result column="role_desc" property="roleDesc"/>
+            <result column="rcreate_time" property="createTime"/>
+            <result column="rupdate_time" property="updateTime"/>
+        </collection>
+    </resultMap>
+
+    <sql id="userRoleSql">
+        `user`
+        .
+        user_id
+        ,
+		`user`.username,
+		`user`.`password`,
+		`user`.salt,
+		`user`.phone,
+		`user`.avatar,
+		`user`.create_time AS ucreate_time,
+		`user`.update_time AS uupdate_time,
+		`user`.del_flag AS udel_flag,
+		`user`.lock_flag AS lock_flag,
+		`user`.sex AS sex,
+		`user`.realname AS realname,
+		`user`.email AS email,
+		`user`.remark AS remark,
+		`user`.organization_id AS organizationId,
+		r.role_id,
+		r.role_name,
+		r.role_code,
+		r.role_desc,
+		r.create_time AS rcreate_time,
+		r.update_time AS rupdate_time
+    </sql>
+
+    <sql id="userRoleDeptSql">
+        `user`
+        .
+        user_id
+        ,
+		`user`.username,
+		`user`.`password`,
+		`user`.salt,
+		`user`.phone,
+		`user`.avatar,
+		`user`.create_time AS ucreate_time,
+		`user`.update_time AS uupdate_time,
+		`user`.del_flag AS udel_flag,
+		`user`.lock_flag AS lock_flag,
+		`user`.sex AS sex,
+		`user`.realname AS realname,
+		`user`.email AS email,
+		`user`.remark AS remark,
+		r.role_id,
+		r.role_name,
+		r.role_code,
+		r.role_desc,
+		r.create_time AS rcreate_time,
+		r.update_time AS rupdate_time,
+		d.full_name AS organizationName,
+		d.id AS organizationId
+    </sql>
+
+    <select id="getUserVoByUsername" resultMap="userVoResultMap">
+        SELECT
+        <include refid="userRoleSql"/>
+        FROM
+        sys_user AS `user`
+        LEFT JOIN sys_user_role AS ur ON ur.user_id = `user`.user_id
+        LEFT JOIN sys_role AS r ON r.role_id = ur.role_id
+        WHERE `user`.username = #{username}
+    </select>
+
+    <select id="getUserVoById" resultMap="userVoResultMap">
+        SELECT
+        <include refid="userRoleDeptSql"/>
+        FROM
+        sys_user AS `user`
+        LEFT JOIN sys_user_role AS ur ON ur.user_id = `user`.user_id
+        LEFT JOIN sys_role AS r ON r.role_id = ur.role_id
+        LEFT JOIN sys_organization AS d ON d.id = `user`.organization_id
+        WHERE
+        `user`.user_id = #{id}
+    </select>
+
+    <select id="getUserVosPage" resultMap="baseResultMap">
+        SELECT
+        `user`.user_id,
+        `user`.username,
+        `user`.`password`,
+        `user`.salt,
+        `user`.phone,
+        `user`.avatar,
+        `user`.create_time AS ucreate_time,
+        `user`.update_time AS uupdate_time,
+        `user`.del_flag AS udel_flag,
+        `user`.lock_flag AS lock_flag,
+        `user`.organization_id AS organizationId,
+        `user`.sex AS sex,
+        `user`.realname AS realname,
+        `user`.email AS email,
+        `user`.remark AS remark,
+        d.full_name AS organizationName,
+        d.is_can_select AS organizationCanSelect
+        FROM
+        sys_user AS `user`
+        LEFT JOIN sys_organization AS d ON d.id = `user`.organization_id
+        <where>
+            `user`.del_flag = '0'
+            <if test="query.username != null and query.username != ''">
+                AND `user`.username LIKE CONCAT('%',#{query.username},'%')
+            </if>
+            <if test="query.realname != null and query.realname != ''">
+                AND `user`.realname LIKE CONCAT('%',#{query.realname},'%')
+            </if>
+            <if test="query.email != null and query.email != ''">
+                AND `user`.email LIKE CONCAT('%',#{query.email},'%')
+            </if>
+            <if test="query.phone != null and query.phone != ''">
+                AND `user`.phone LIKE CONCAT('%',#{query.phone},'%')
+            </if>
+            <if test="query.lockFlag != null and query.lockFlag != ''">
+                AND `user`.lock_flag = #{query.lockFlag}
+            </if>
+            <if test="query.sex != null and query.sex != ''">
+                AND `user`.sex = #{query.sex}
+            </if>
+            <if test="query.organizationId != null and query.organizationId != ''">
+                AND `user`.organization_id = #{query.organizationId}
+            </if>
+            <if test="query.role != null">
+                AND `user`.user_id IN(
+                SELECT user_id FROM sys_user_role WHERE role_id IN
+                <foreach collection="query.role" item="item" open="(" close=")" separator=",">
+                    #{item}
+                </foreach>
+                )
+            </if>
+            <if test="query.roleName != null and query.roleName != ''">
+                AND `user`.user_id IN(SELECT user_id FROM sys_user_role WHERE role_id IN(SELECT role_id FROM sys_role
+                WHERE role_name LIKE CONCAT('%',#{query.roleName},'%')))
+            </if>
+            <if test="query.organizationName != null and query.organizationName != ''">
+                AND `user`.organization_id IN(SELECT id FROM sys_organization WHERE name LIKE
+                CONCAT('%',#{query.organizationName},'%'))
+            </if>
+            <if test="userOrganizationId != null and userOrganizationId != ''">
+                AND `user`.organization_id IN(SELECT id FROM sys_organization WHERE parent_id_path LIKE
+                CONCAT('%/',#{userOrganizationId},'/%'))
+            </if>
+
+        </where>
+        ORDER BY `user`.create_time DESC
+    </select>
+
+    <!--查询绑定指定角色的用户名-->
+    <select id="findUserNamesByRoleId" resultType="java.lang.String">
+        SELECT username
+        FROM sys_user
+        WHERE user_id in (SELECT user_id FROM sys_user_role WHERE role_id = #{roleId})
+    </select>
+
+    <!--查询绑定指定角色的用户id-->
+    <select id="findUserIdByRoleId" resultType="java.lang.Integer">
+        SELECT user_id
+        FROM sys_user
+        WHERE user_id in (SELECT user_id FROM sys_user_role WHERE role_id = #{roleId})
+    </select>
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xcloud-socket</artifactId>
+        <groupId>io.github.xjinyao</groupId>
+        <version>1.10.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>xcloud-socket-api</artifactId>
+
+    <dependencies>
+        <!--mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+        </dependency>
+        <!--core 工具类-->
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-core</artifactId>
+        </dependency>
+        <!--feign 依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--元数据生成-->
+        <dependency>
+            <groupId>com.github.thinwonton.mybatismetamodel</groupId>
+            <artifactId>mybatisplus-spring</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.xjinyao</groupId>
+        <artifactId>xcloud-upms</artifactId>
+        <version>1.10.0</version>
+    </parent>
+
+    <artifactId>xcloud-upms-api</artifactId>
+    <packaging>jar</packaging>
+
+    <description>通用用户权限管理系统公共api模块</description>
+
+    <dependencies>
+        <!--mybatis-plus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+        </dependency>
+        <!--core 工具类-->
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-core</artifactId>
+        </dependency>
+        <!--feign 依赖-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--元数据生成-->
+        <dependency>
+            <groupId>com.github.thinwonton.mybatismetamodel</groupId>
+            <artifactId>mybatisplus-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-file-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-swagger</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.bsc.maven</groupId>
+                <artifactId>maven-processor-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

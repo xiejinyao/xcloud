@@ -1,0 +1,27 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        namespace: @config.namespace@
+        server-addr: @config.server.address@
+        group: @config.group@
+      config:
+        namespace: @config.namespace@
+        group: @config.group@
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-configs:
+          - { dataId: "application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}", group: "@config.group@" }
+  profiles:
+    active: @profiles.active@
+
+gateway:
+  #自定义路径配置
+  route:
+    config:
+      group: @config.group@

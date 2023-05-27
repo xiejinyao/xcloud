@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.xjinyao.xcloud.core.rule.config.WebMvcConfiguration,\
+  com.xjinyao.xcloud.core.rule.config.RuleConfiguration
+
+

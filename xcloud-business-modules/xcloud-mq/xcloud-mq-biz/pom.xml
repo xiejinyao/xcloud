@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xcloud-mq</artifactId>
+        <groupId>io.github.xjinyao</groupId>
+        <version>1.10.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>xcloud-mq-biz</artifactId>
+
+    <description>队列消费出队模块</description>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-mq-config</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <!--断路器依赖-->
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-sentinel</artifactId>
+        </dependency>
+        <!--接口文档-->
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-swagger</artifactId>
+        </dependency>
+        <!--注册中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--配置中心客户端-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!-- 读取bootstrap.yml -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+        <!--支持负载均衡-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <!--安全模块-->
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-security</artifactId>
+        </dependency>
+        <!--日志处理-->
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-log</artifactId>
+        </dependency>
+        <!--mybatis 模块-->
+        <dependency>
+            <groupId>io.github.xjinyao</groupId>
+            <artifactId>xcloud-common-mybatis</artifactId>
+        </dependency>
+        <!--undertow容器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

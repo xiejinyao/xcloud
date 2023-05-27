@@ -1,0 +1,2 @@
+com.xjinyao.xcloud.interactive.captcha.core.service.impl.CaptchaCacheServiceMemImpl
+com.xjinyao.xcloud.interactive.captcha.core.service.impl.CaptchaCacheServiceRedisImpl

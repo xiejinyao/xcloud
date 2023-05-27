@@ -1,0 +1,35 @@
+server:
+  port: 5006
+
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        namespace: @config.namespace@
+        server-addr: @config.server.address@
+        group: @config.group@
+      config:
+        namespace: @config.namespace@
+        group: @config.group@
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        shared-configs:
+          - { dataId: "application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}", group: "@config.group@" }
+    stream:
+      default-binder: rabbit
+      rabbit:
+        binder:
+          connection-name-prefix: ${spring.application.name}.stream#n
+      bindings:
+        WEBSOCKET_MESSAGE_INPUT:
+          binder: rabbit
+          destination: ${spring.application.name}_WEBSOCKET_MESSAGE_STREAM
+          contentType: 'application/json'
+        WEBSOCKET_MESSAGE_OUTPUT:
+          binder: rabbit
+          destination: ${spring.application.name}_WEBSOCKET_MESSAGE_STREAM
+          contentType: 'application/json'
+  profiles:
+    active: @profiles.active@

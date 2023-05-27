@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xjinyao.xcloud.file.mapper.FileMapper">
+
+    <resultMap id="fileMap" type="com.xjinyao.xcloud.file.api.entity.SysFile">
+        <id property="id" column="id"/>
+        <result property="businessCode" column="business_code"/>
+        <result property="originalName" column="original_name"/>
+        <result property="customName" column="custom_name"/>
+        <result property="relativePath" column="relative_path"/>
+        <result property="fileType" column="file_type"/>
+        <result property="fileSize" column="size"/>
+        <result property="createUserId" column="create_user_id"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="version" column="version"/>
+    </resultMap>
+</mapper>

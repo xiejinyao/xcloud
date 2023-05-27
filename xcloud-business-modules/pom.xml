@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>xcloud</artifactId>
+        <groupId>io.github.xjinyao</groupId>
+        <version>1.10.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <artifactId>xcloud-business-modules</artifactId>
+    <description>通用模块</description>
+
+    <modules>
+        <module>xcloud-area</module>
+        <module>xcloud-file</module>
+        <module>xcloud-mq</module>
+        <module>xcloud-socket</module>
+        <module>xcloud-job</module>
+        <module>xcloud-report</module>
+    </modules>
+</project>

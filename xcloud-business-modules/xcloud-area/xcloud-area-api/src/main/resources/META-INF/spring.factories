@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.xjinyao.xcloud.area.feign.factory.RemoteAreaServiceFallbackFactory,\
+  com.xjinyao.xcloud.area.feign.fallback.RemoteAreaServiceFallbackImpl

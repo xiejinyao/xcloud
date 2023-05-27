@@ -1,0 +1,43 @@
+HELP.md
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+_jars
+
+.DS_Store
+
+*.log
+
+node_modules
+logs
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+/.mvn/
+/derby.log

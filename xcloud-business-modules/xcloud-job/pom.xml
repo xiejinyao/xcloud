@@ -1,0 +1,21 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.xjinyao</groupId>
+        <artifactId>xcloud-business-modules</artifactId>
+        <version>1.10.0</version>
+    </parent>
+
+    <artifactId>xcloud-job</artifactId>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>xcloud-xxl-job-admin</module>
+        <module>xcloud-job-admin-api</module>
+<!--        <module>xcloud-job-admin-biz</module>-->
+<!--        <module>xcloud-job-executor-biz</module>-->
+        <module>xcloud-job-executor-service</module>
+    </modules>
+</project>

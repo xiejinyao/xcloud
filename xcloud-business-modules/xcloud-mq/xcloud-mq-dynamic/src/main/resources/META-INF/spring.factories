@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ com.xjinyao.xcloud.mq.dynamic.config.DynamicMqConfig

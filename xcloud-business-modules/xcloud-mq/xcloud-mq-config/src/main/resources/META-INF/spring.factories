@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.xjinyao.xcloud.mq.config.ExchangeConfig,\
+  com.xjinyao.xcloud.mq.config.BusinessQueueConfig,\
+  com.xjinyao.xcloud.mq.config.QueuesConfig

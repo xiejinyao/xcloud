@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.xjinyao.xcloud.common.core.redis.config.RedisTemplateConfiguration

@@ -1,0 +1,3 @@
+com.xjinyao.xcloud.interactive.captcha.core.service.impl.BlockPuzzleCaptchaServiceImpl
+com.xjinyao.xcloud.interactive.captcha.core.service.impl.ClickWordCaptchaServiceImpl
+com.xjinyao.xcloud.interactive.captcha.core.service.impl.DefaultCaptchaServiceImpl

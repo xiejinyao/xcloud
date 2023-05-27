@@ -1,0 +1,106 @@
+<!-- https://allatori.com/doc.html -->
+<config>
+    <!-- 混淆输入源 -->
+    <input>
+        <!-- 主应用可执行jar -->
+        <jar in="${project.build.directory}/${project.build.finalName}.jar"
+             out="${project.build.directory}/${project.build.finalName}.jar"/>
+        <!-- 主应用依赖的当前框架的所有jar -->
+        <jar in="${project.build.directory}/xcloud-jars/*.jar"
+             out="${project.build.directory}/xcloud-jars/*.jar"/>
+    </input>
+    <!-- 主应用所有的依赖 -->
+    <classpath basedir="${project.build.directory}/libs">
+        <jar name="*.jar"/>
+    </classpath>
+    <!-- 配置一些规则来保持类、字段、方法、参数的名字不被混淆-->
+    <keep-names>
+        <!-- 所有序列化类的所有字段及方法 -->
+        <class template="class * instanceof java.io.Serializable">
+            <field access="private+"/>
+            <method access="private+"/>
+        </class>
+
+        <!-- 所有mapper类的所有字段及方法 -->
+        <class template="class * extends BaseMapper">
+            <field access="private+"/>
+            <method access="private+"/>
+        </class>
+
+        <!-- 所有公开类的公开字段及方法 -->
+        <class access="protected+">
+            <field access="protected+"/>
+            <method access="protected+"/>
+        </class>
+
+        <!-- 特殊方法及特殊注解 -->
+        <class template="class *">
+            <!-- 序列化字段id -->
+            <field template="* serialVersionUID"/>
+            <!-- init、destroy、close方法 -->
+            <method template="public regex:(init|destroy|close)(*)"/>
+            <!-- getter、setter方法 -->
+            <method template="public regex:(g|s)et*(*)"/>
+            <!-- apo注解 -->
+            <method template="@org.aspectj.lang.annotation.Around *(**)" parameters="keep"/>
+            <!-- 分布式锁 -->
+            <method template="@com.jinyao.xdp.lock.annotations.XLock *(**)" parameters="keep"/>
+            <!-- controller请求映射方法 -->
+            <method template="@org.springframework.web.bind.annotation.* *(**)" parameters="keep"/>
+            <!-- 缓存注解 -->
+            <method template="@org.springframework.cache.annotation.Cacheable *(**)" parameters="keep"/>
+            <method template="@org.springframework.cache.annotation.CacheEvict *(**)" parameters="keep"/>
+            <method template="@org.springframework.cache.annotation.CachePut *(**)" parameters="keep"/>
+        </class>
+    </keep-names>
+
+    <ignore-classes>
+        <!-- 忽略spring框架类 -->
+        <class template="class org.springframework.*"/>
+        <!-- 忽略配置相关类 -->
+        <class template="class *.config.*"/>
+        <!-- 忽略实体类 -->
+        <class template="class *.entity.*"/>
+        <!-- 忽略dto -->
+        <class template="class *.dto.*"/>
+        <!-- 忽略vo -->
+        <class template="class *.vo.*"/>
+    </ignore-classes>
+
+    <!-- 如果某个包中的所有类都被重命名，那么将把它们移到默认包中 -->
+    <property name="default-package" value="com.xjinyao.xcloud._default"/>
+    <!-- 设置所有重命名的类是否移入默认包中。 -->
+    <property name="force-default-package" value="enable"/>
+
+    <!-- 类重命名策略 -->
+    <property name="classes-naming" value="compact"/>
+    <!-- 方法重命名策略 -->
+    <property name="methods-naming" value="compact"/>
+    <!-- 字段重命名策略 -->
+    <property name="fields-naming" value="compact"/>
+    <!-- 变量重命名策略 -->
+    <property name="local-variables-naming" value="optimize"/>
+
+    <!-- 不改变资源文件名 -->
+    <property name="update-resource-names" value="disable"/>
+    <!-- 不改变资源文件内容 -->
+    <property name="update-resource-contents" value="disable"/>
+
+    <!-- 移除所有的文档相关注解   -->
+    <!-- <property name="remove-annotations" value="io.swagger.annotations.*"/> -->
+
+    <!-- 改变方法的内容 -->
+    <property name="control-flow-obfuscation" value="enable"/>
+
+    <property name="extensive-flow-obfuscation" value="maximum"/>
+
+    <!-- 指定的字符串将被用作所有重命名类的名称前缀 -->
+    <property name="classes-naming-prefix" value="Tcs"/>
+    <!-- 指定的字符串将被用作所有重命名字段的名称前缀 -->
+   <property name="fields-naming-prefix" value="xcloud_"/>
+    <!-- 指定的字符串将被用作所有重命名方法的名称前缀 -->
+    <property name="methods-naming-prefix" value="xcloud_"/>
+
+   <!-- 日志文件用于从被混淆的堆栈跟踪中恢复原始堆栈跟踪。它保留了混淆后的名字和行号对原始的映射 -->
+    <property name="log-file" value="log.xml"/>
+</config>

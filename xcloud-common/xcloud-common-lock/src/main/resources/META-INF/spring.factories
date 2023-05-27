@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.jinyao.xdp.lock.redisson.config.XRedissonConfiguration,\
+  com.jinyao.xdp.lock.config.XLockAspectConfiguration

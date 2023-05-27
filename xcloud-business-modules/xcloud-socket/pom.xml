@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>xcloud-socket-api</module>
-        <!-- <module>xcloud-(w+)-biz</module> -->
+        <module>xcloud-socket-biz</module>
         <module>xcloud-socket-service</module>
     </modules>
 

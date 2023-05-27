@@ -17,7 +17,7 @@
 
     <modules>
         <module>xcloud-upms-api</module>
-        <!-- <module>xcloud-(w+)-biz</module> -->
+        <module>xcloud-upms-biz</module>
         <module>xcloud-upms-service</module>
     </modules>
 </project>

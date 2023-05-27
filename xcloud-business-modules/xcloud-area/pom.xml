@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>xcloud-area-api</module>
-        <!-- <module>xcloud-(w+)-biz</module> -->
+        <module>xcloud-area-biz</module>
         <module>xcloud-area-service</module>
     </modules>
 

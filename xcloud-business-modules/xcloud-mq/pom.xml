@@ -17,7 +17,7 @@
 
     <modules>
         <module>xcloud-mq-api</module>
-        <!-- <module>xcloud-(w+)-biz</module> -->
+        <module>xcloud-mq-biz</module>
         <module>xcloud-mq-config</module>
         <module>xcloud-mq-data-import-receiver</module>
         <module>xcloud-mq-dynamic</module>

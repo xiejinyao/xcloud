@@ -1,7 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xjinyao.xcloud.common.core.config.DateConfig,\
-  com.xjinyao.xcloud.common.core.config.JacksonConfiguration,\
-  com.xjinyao.xcloud.common.core.config.RestTemplateConfiguration,\
-  com.xjinyao.xcloud.common.core.properties.CommonProperties,\
-  com.xjinyao.xcloud.common.core.util.SpringContextHolder,\
-  com.xjinyao.xcloud.common.core.config.WebMvcConfiguration

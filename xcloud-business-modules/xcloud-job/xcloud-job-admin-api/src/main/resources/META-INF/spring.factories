@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xjinyao.xcloud.xxl.job.admin.api.config.RemoteServiceConfig

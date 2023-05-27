@@ -3,7 +3,7 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>xcloud</artifactId>
+        <artifactId>xcloud-demo</artifactId>
         <groupId>io.github.xjinyao</groupId>
         <version>1.10.0</version>
     </parent>

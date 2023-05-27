@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    com.xjinyao.xcloud.common.log.LogAutoConfiguration
-org.springframework.context.ApplicationContextInitializer=\
-    com.xjinyao.xcloud.common.log.init.ApplicationLoggerInitializer

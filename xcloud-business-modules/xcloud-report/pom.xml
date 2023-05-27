@@ -10,7 +10,6 @@
     <artifactId>xcloud-report</artifactId>
 
     <modules>
-        <!-- <module>xcloud-(w+)-biz</module> -->
-        <module>xcloud-report-service</module>
+        <module>xcloud-report-biz</module>
     </modules>
 </project>

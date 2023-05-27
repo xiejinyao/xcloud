@@ -12,10 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>xcloud-xxl-job-admin</module>
-        <module>xcloud-job-admin-api</module>
-<!--        <module>xcloud-job-admin-biz</module>-->
-<!--        <module>xcloud-job-executor-biz</module>-->
-        <module>xcloud-job-executor-service</module>
+        <module>xcloud-job-admin-biz</module>
+        <module>xcloud-job-executor-biz</module>
     </modules>
 </project>

@@ -10,9 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>xcloud-socket-api</module>
         <module>xcloud-socket-biz</module>
-        <module>xcloud-socket-service</module>
     </modules>
 
     <artifactId>xcloud-socket</artifactId>

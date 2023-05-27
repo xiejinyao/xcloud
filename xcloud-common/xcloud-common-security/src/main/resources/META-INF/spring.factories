@@ -1,6 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xjinyao.xcloud.common.security.aspect.CustomSecurityInnerAspect,\
-  com.xjinyao.xcloud.common.security.aspect.CustomSecurityOpenResourceAspect,\
-  com.xjinyao.xcloud.common.security.config.SecurityConfiguration,\
-  com.xjinyao.xcloud.common.security.config.FilterConfig
-

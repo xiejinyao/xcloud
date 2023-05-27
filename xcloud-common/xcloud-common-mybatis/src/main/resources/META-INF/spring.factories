@@ -1,4 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    com.xjinyao.xcloud.common.mybatis.config.MybatisConfig,\
-    com.xjinyao.xcloud.common.mybatis.MybatisAutoConfiguration,\
-    com.xjinyao.xcloud.common.mybatis.resolver.WebMvcConfig

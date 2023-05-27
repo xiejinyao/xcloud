@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xjinyao.xcloud.file.api.feign.fallback.RemoteFileServiceFallbackImpl,\
-  com.xjinyao.xcloud.file.api.feign.factory.RemotSysFileServiceFallbackFactory

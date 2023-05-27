@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.github.xjinyao</groupId>
-        <artifactId>xcloud</artifactId>
+        <artifactId>xcloud-demo</artifactId>
         <version>1.10.0</version>
     </parent>
 
@@ -14,8 +14,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!-- <module>xcloud-(w+)-biz</module> -->
-        <module>xcloud-gateway-service</module>
+        <module>xcloud-gateway-biz</module>
     </modules>
 
 </project>

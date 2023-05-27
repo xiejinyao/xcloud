@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.xjinyao</groupId>
-    <artifactId>xcloud</artifactId>
+    <artifactId>xcloud-demo</artifactId>
     <version>1.10.0</version>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
@@ -12,33 +12,6 @@
     <url>https://github.com/xjinyao/xcloud.git</url>
 
     <description>Spring cloud 快速集成框架</description>
-
-    <scm>
-        <connection>scm:git:https://github.com/xjinyao/xcloud/main</connection>
-        <developerConnection>scm:git:https://github.com/xjinyao/xcloud/main</developerConnection>
-        <url>https://github.com/xjinyao/xcloud.git</url>
-    </scm>
-
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-            <comments>simple report support license</comments>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <id>xjinyao</id>
-            <name>xjinyao</name>
-            <email>xie_jin_wei@163.com</email>
-            <timezone>+8</timezone>
-            <roles>
-                <role>Owner</role>
-            </roles>
-        </developer>
-    </developers>
 
     <profiles>
         <profile>
@@ -101,89 +74,11 @@
                 <!-- 默认环境 -->
                 <activeByDefault>false</activeByDefault>
             </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                    </plugin>
-                    <!-- GPG plugin -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
         </profile>
-        <!--        <profile>-->
-        <!--            <id>release-t</id>-->
-        <!--            <properties>-->
-        <!--                &lt;!&ndash; 环境标识，需要与配置文件的名称相对应 &ndash;&gt;-->
-        <!--                <profiles.active>release</profiles.active>-->
-
-        <!--                <log.root.path.dir>/var/log/webapps/</log.root.path.dir>-->
-        <!--                <log.level.info.spring.profile>dev,release</log.level.info.spring.profile>-->
-        <!--                <log.level.error.spring.profile>test</log.level.error.spring.profile>-->
-        <!--                <gateway.url.prefix>https://xjinyao.xcloud.com</gateway.url.prefix>-->
-
-        <!--                <config.namespace>e6f32399-7d0a-4800-afe0-8ff0efe903ec</config.namespace>-->
-        <!--                <config.group>XCLOUD_GROUP</config.group>-->
-        <!--                <config.server.address>nacos.property.svc.cluster.local:8848</config.server.address>-->
-        <!--            </properties>-->
-        <!--            <activation>-->
-        <!--                &lt;!&ndash; 默认环境 &ndash;&gt;-->
-        <!--                <activeByDefault>false</activeByDefault>-->
-        <!--            </activation>-->
-
-        <!--            <build>-->
-        <!--                <plugins>-->
-        <!--&lt;!&ndash;                    <plugin>&ndash;&gt;-->
-        <!--&lt;!&ndash;                        <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
-        <!--&lt;!&ndash;                        <artifactId>maven-source-plugin</artifactId>&ndash;&gt;-->
-        <!--&lt;!&ndash;                    </plugin>&ndash;&gt;-->
-        <!--&lt;!&ndash;                    <plugin>&ndash;&gt;-->
-        <!--&lt;!&ndash;                        <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
-        <!--&lt;!&ndash;                        <artifactId>maven-javadoc-plugin</artifactId>&ndash;&gt;-->
-        <!--&lt;!&ndash;                    </plugin>&ndash;&gt;-->
-        <!--                    &lt;!&ndash; GPG plugin &ndash;&gt;-->
-        <!--                    <plugin>-->
-        <!--                        <groupId>org.apache.maven.plugins</groupId>-->
-        <!--                        <artifactId>maven-gpg-plugin</artifactId>-->
-        <!--                    </plugin>-->
-
-        <!--                    <plugin>-->
-        <!--                        <groupId>org.sonatype.plugins</groupId>-->
-        <!--                        <artifactId>nexus-staging-maven-plugin</artifactId>-->
-        <!--                    </plugin>-->
-        <!--                </plugins>-->
-        <!--            </build>-->
-        <!--            <distributionManagement>-->
-        <!--                <snapshotRepository>-->
-        <!--                    <id>tq-maven-snapshots</id>-->
-        <!--                    <url>https://mirror.tq-service.com/TIQIRepository/repository/maven-snapshots</url>-->
-        <!--                </snapshotRepository>-->
-
-        <!--                <repository>-->
-        <!--                    <id>tq-maven-releases</id>-->
-        <!--                    <url>https://mirror.tq-service.com/TIQIRepository/repository/maven-releases</url>-->
-        <!--                </repository>-->
-        <!--            </distributionManagement>-->
-        <!--        </profile>-->
     </profiles>
 
     <properties>
         <xcloud.common.version>1.10.0</xcloud.common.version>
-        <projectRootDir>${maven.multiModuleProjectDirectory}</projectRootDir>
 
         <java.version>11</java.version>
         <maven.compiler.source>11</maven.compiler.source>
@@ -191,108 +86,7 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.5.4</spring-boot.version>
-        <spring-cloud.version>2020.0.3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-        <spring-boot-admin.version>2.7.7</spring-boot-admin.version>
-
-        <security.oauth.version>2.5.1.RELEASE</security.oauth.version>
-        <git.commit.plugin>2.2.5</git.commit.plugin>
-        <spring.checkstyle.plugin>0.0.23</spring.checkstyle.plugin>
-        <auto-service.version>1.0-rc7</auto-service.version>
-        <fastjson.version>1.2.74</fastjson.version>
-        <swagger.core.version>1.6.2</swagger.core.version>
-        <redisson.version>3.17.6</redisson.version>
-
-        <commons-lang.version>3.12.0</commons-lang.version>
-        <commons-io.version>2.6</commons-io.version>
-        <hutool.version>5.4.4</hutool.version>
-        <mybatis-plus.version>3.4.3.2</mybatis-plus.version>
-        <dynamic-ds.version>3.2.0</dynamic-ds.version>
-        <captcha.version>2.2.0</captcha.version>
-        <velocity.version>1.7</velocity.version>
-        <jasypt.version>3.0.4</jasypt.version>
-        <swagger.fox.version>3.0.0</swagger.fox.version>
-        <knife4j-micro-spring-boot-starter.version>3.0.3</knife4j-micro-spring-boot-starter.version>
-        <knife4j-spring-ui.version>3.0.3</knife4j-spring-ui.version>
-        <xxl-job.version>2.3.1</xxl-job.version>
-        <docker.plugin.version>0.32.0</docker.plugin.version>
-        <docker.host>http://192.168.0.100:2375</docker.host>
-        <docker.registry>192.168.0.100</docker.registry>
-        <docker.namespace>dhy.xcloud.docker</docker.namespace>
-        <docker.username>username</docker.username>
-        <docker.password>password</docker.password>
-
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <git-commit-id-plugin.version>2.2.5</git-commit-id-plugin.version>
-
-        <jodconverter-core.version>4.3.0</jodconverter-core.version>
-        <jodconverter-local.version>4.3.0</jodconverter-local.version>
-        <libreoffice.version>6.4.3</libreoffice.version>
-        <netty-socketio.version>1.7.19</netty-socketio.version>
-
-        <pf4j.version>3.2.0</pf4j.version>
-        <mockito.version>2.0.28-beta</mockito.version>
-        <cobertura.version>2.7</cobertura.version>
-        <coveralls.version>3.1.0</coveralls.version>
-
-        <javadoc.disabled>false</javadoc.disabled>
-        <deploy.disabled>false</deploy.disabled>
-        <source.disabled>false</source.disabled>
-
-        <maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
-
-        <aviator.version>5.1.4</aviator.version>
-
-        <poi.version>5.0.0</poi.version>
-        <commons-fileupload.version>1.4</commons-fileupload.version>
-
-        <taos-jdbcdriver.version>2.0.34</taos-jdbcdriver.version>
-        <hivemq-mqtt-client.version>1.2.2</hivemq-mqtt-client.version>
     </properties>
-
-    <dependencies>
-        <!--配置文件处理器-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <!--配置文件加解密-->
-        <dependency>
-            <groupId>com.github.ulisesbocchio</groupId>
-            <artifactId>jasypt-spring-boot-starter</artifactId>
-            <version>${jasypt.version}</version>
-        </dependency>
-        <!--监控-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--监控客户端-->
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>${spring-boot-admin.version}</version>
-        </dependency>
-        <!--Lombok-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <!--测试依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-        </dependency>
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -321,263 +115,15 @@
                 <scope>import</scope>
             </dependency>
 
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-easy-captcha</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-interactive-captcha</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-excel</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-lock</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-rule</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-redis</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-plugins</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-core</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-job</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-log</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-mybatis</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-security</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-sentinel</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-swagger</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-test</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-common-util</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-mq-config</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-mq-data-import-receiver</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-xxl-job-admin</artifactId>
-                <version>${xcloud.common.version}</version>
+                <artifactId>xcloud</artifactId>
+                <version>1.10.0</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-job-executor-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-gateway-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-register-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-file-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-area-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-report-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-socket-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-upms-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-auth-service</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-job-admin-api</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-upms-api</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-file-api</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-area-api</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-socket-api</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.xjinyao</groupId>
-                <artifactId>xcloud-mq-api</artifactId>
-                <version>${xcloud.common.version}</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter</artifactId>
-                <version>3.0.3</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-gateway-core</artifactId>
-                <version>2.2.9.RELEASE</version>
-            </dependency>
-
-            <!--稳定版本，替代spring security bom内置-->
-            <dependency>
-                <groupId>org.springframework.security.oauth</groupId>
-                <artifactId>spring-security-oauth2</artifactId>
-                <version>${security.oauth.version}</version>
-            </dependency>
-            <!--swagger 最新依赖内置版本-->
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-models</artifactId>
-                <version>${swagger.core.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.swagger</groupId>
-                <artifactId>swagger-annotations</artifactId>
-                <version>${swagger.core.version}</version>
-            </dependency>
-            <!--fastjson 版本-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-            <!--常用工具包-->
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-            <!--web 模块-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-                <exclusions>
-                    <!--排除tomcat依赖-->
-                    <exclusion>
-                        <artifactId>spring-boot-starter-tomcat</artifactId>
-                        <groupId>org.springframework.boot</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <!-- socket.io -->
-            <dependency>
-                <groupId>com.corundumstudio.socketio</groupId>
-                <artifactId>netty-socketio</artifactId>
-                <version>${netty-socketio.version}</version>
-            </dependency>
-            <!--mybatis-plus-->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-            <!--元数据生成-->
-            <dependency>
-                <groupId>com.github.thinwonton.mybatismetamodel</groupId>
-                <artifactId>mybatisplus-spring</artifactId>
-                <version>1.0.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.baomidou</groupId>
-                        <artifactId>mybatis-plus-core</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -628,333 +174,29 @@
                 </includes>
             </resource>
         </resources>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${spring-boot.version}</version>
-                    <configuration>
-                        <finalName>${project.build.finalName}</finalName>
-                        <layers>
-                            <enabled>true</enabled>
-                        </layers>
-                        <!--                        <excludeGroupIds>com.xjinyao.xcloud</excludeGroupIds>-->
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>repackage</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>io.fabric8</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>${docker.plugin.version}</version>
-                    <configuration>
-                        <!-- Docker Remote Api-->
-                        <dockerHost>${docker.host}</dockerHost>
-                        <!-- Docker 镜像私服-->
-                        <registry>${docker.registry}</registry>
-                        <!-- 认证信息-->
-                        <authConfig>
-                            <push>
-                                <username>${docker.username}</username>
-                                <password>${docker.password}</password>
-                            </push>
-                        </authConfig>
-                        <images>
-                            <image>
-                                <!-- 镜像名称： 172.17.0.111/library/xcloud-gateway:2.6.3-->
-                                <name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>
-                                <build>
-                                    <dockerFile>${project.basedir}/Dockerfile</dockerFile>
-                                </build>
-                            </image>
-                        </images>
-                    </configuration>
-                </plugin>
-                <!--元数据生成-->
-                <plugin>
-                    <groupId>org.bsc.maven</groupId>
-                    <artifactId>maven-processor-plugin</artifactId>
-                    <version>3.3.3</version>
-                    <configuration>
-                        <processors>
-                            <processor>
-                                com.github.thinwonton.mybatis.metamodel.mybatisplus.processor.gen.MybatisPlusMetaModelGenProcessor
-                            </processor>
-                        </processors>
-                        <options>
-                            <debug>false</debug>
-                        </options>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>process</id>
-                            <goals>
-                                <goal>process</goal>
-                            </goals>
-                            <phase>generate-sources</phase>
-                            <configuration>
-                                <outputDirectory>
-                                    ${project.build.directory}/generated-sources/annotations
-                                </outputDirectory>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>process-test</id>
-                            <goals>
-                                <goal>process-test</goal>
-                            </goals>
-                            <phase>generate-test-sources</phase>
-                            <configuration>
-                                <outputDirectory>
-                                    ${project.build.directory}/generated-test-sources/test-annotations
-                                </outputDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.6</version>
-                    <executions>
-                        <execution>
-                            <id>copy-and-filter-allatori-config</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>copy-resources</goal>
-                            </goals>
-                            <configuration>
-                                <resources>
-                                    <resource>
-                                        <directory>${projectRootDir}/allatori</directory>
-                                        <includes>
-                                            <include>allatori.xml</include>
-                                        </includes>
-                                        <filtering>true</filtering>
-                                    </resource>
-                                </resources>
-                                <outputDirectory>${project.build.directory}/allatori</outputDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>copy-dependencies</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>copy-dependencies</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>
-                                    ${project.build.directory}/libs/
-                                </outputDirectory>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- https://ant.apache.org/manual/index.html -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>3.1.0</version>
-                    <executions>
-                        <execution>
-                            <id>package</id>
-                            <phase>package</phase>
-                            <configuration>
-                                <target>
-                                    <copy file="${project.build.directory}/${project.build.finalName}.jar"
-                                          tofile="${project.build.directory}/${project.build.finalName}-old.jar"/>
-
-                                    <move todir="${project.build.directory}/xcloud-jars/"
-                                          overwrite="true">
-                                        <fileset dir="${project.build.directory}/libs/">
-                                            <include name="xcloud-*.jar"/>
-                                        </fileset>
-                                    </move>
-
-                                    <copy todir="${project.build.directory}/allatori">
-                                        <fileset dir="${projectRootDir}/allatori/">
-                                            <include name="**/*.jar"/>
-                                        </fileset>
-                                    </copy>
-
-                                    <java classname="com.allatori.Obfuscate" maxmemory="512m">
-                                        <classpath>
-                                            <pathelement
-                                                    location="${project.build.directory}/allatori/lib/allatori.jar"/>
-                                        </classpath>
-                                        <arg value="${project.build.directory}/allatori/allatori.xml"/>
-                                    </java>
-
-                                    <delete dir="${project.build.directory}/libs/"/>
-
-                                    <mkdir dir="${project.build.directory}/obfuscate"/>
-
-                                    <unzip src="${project.build.directory}/${project.build.finalName}.jar"
-                                           dest="${project.build.directory}/obfuscate/"/>
-
-                                    <delete dir="${project.build.directory}/obfuscate/" includes="xcloud-*.jar"/>
-
-                                    <move todir="${project.build.directory}/obfuscate/BOOT-INF/lib">
-                                        <fileset dir="${project.build.directory}/xcloud-jars/">
-                                            <include name="xcloud-*.jar"/>
-                                        </fileset>
-                                    </move>
-
-                                    <delete dir="${project.build.directory}/${project.build.finalName}.jar"/>
-
-                                    <jar destfile="${project.build.directory}/${project.build.finalName}.jar"
-                                         basedir="${project.build.directory}/obfuscate/"
-                                         filesetmanifest="merge"
-                                         compress="false"
-                                         keepcompression="true"/>
-
-                                    <delete dir="${project.build.directory}/xcloud-jars"/>
-
-                                    <delete dir="${project.build.directory}/obfuscate/"/>
-                                </target>
-                            </configuration>
-                            <goals>
-                                <goal>run</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.1.0</version>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>jar-no-fork</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <archive>
-                            <addMavenDescriptor>false</addMavenDescriptor>
-                        </archive>
-                        <includes>
-                            <include>**/source.txt</include>
-                        </includes>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.2.0</version>
-                    <configuration>
-                        <show>private</show>
-                        <nohelp>true</nohelp>
-                        <charset>UTF-8</charset>
-                        <encoding>UTF-8</encoding>
-                        <docencoding>UTF-8</docencoding>
-                        <author>true</author>
-                        <javadocExecutable>/Users/yang/Library/Java/JavaVirtualMachines/azul-11.0.19/Contents/Home/bin</javadocExecutable>
-                        <additionalOptions>
-                            <additionalOption>-Xdoclint:none</additionalOption>
-                        </additionalOptions>
-                        <tags>
-                            <tag>
-                                <name>date</name>
-                            </tag>
-                            <tag>
-                                <name>createDate</name>
-                            </tag>
-                            <tag>
-                                <name>param</name>
-                            </tag>
-                            <tag>
-                                <name>description</name>
-                            </tag>
-                        </tags>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>1.6</version>
-                    <executions>
-                        <execution>
-                            <id>sign-artifacts</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>sign</goal>
-                            </goals>
-                            <configuration>
-                                <!-- Prevent `gpg` from using pinentry programs -->
-                                <gpgArguments>
-                                    <arg>--pinentry-mode</arg>
-                                    <arg>loopback</arg>
-                                </gpgArguments>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.6.8</version>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <serverId>oss</serverId>
-                        <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                        <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <useIncrementalCompilation>true</useIncrementalCompilation>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-                <version>${git-commit-id-plugin.version}</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M1</version>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-        </plugins>
+<!--        <pluginManagement>-->
+<!--            <plugins>-->
+<!--                <plugin>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                    <version>${spring-boot.version}</version>-->
+<!--                    <configuration>-->
+<!--                        <finalName>${project.build.finalName}</finalName>-->
+<!--                        <layers>-->
+<!--                            <enabled>true</enabled>-->
+<!--                        </layers>-->
+<!--                    </configuration>-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <goals>-->
+<!--                                <goal>repackage</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
+<!--            </plugins>-->
+<!--        </pluginManagement>-->
     </build>
 
     <repositories>
@@ -1002,7 +244,6 @@
         <module>xcloud-gateway</module>
         <module>xcloud-auth</module>
         <module>xcloud-upms</module>
-        <module>xcloud-common</module>
         <module>xcloud-business-modules</module>
     </modules>
 </project>

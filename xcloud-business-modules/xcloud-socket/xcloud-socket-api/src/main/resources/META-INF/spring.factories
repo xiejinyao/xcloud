@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xjinyao.xcloud.socket.feign.fallback.RemoteSocketIOMessageServiceFallbackImpl,\
-  com.xjinyao.xcloud.socket.feign.factory.RemoteSocketIOMessageServiceFallbackFactory
